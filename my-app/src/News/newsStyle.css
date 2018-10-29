@@ -1,0 +1,5 @@
+.allNews, .noNews {
+  display: block;
+  padding: 5px 15px;
+  background-color: burlywood;
+}
