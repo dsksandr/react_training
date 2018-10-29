@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import News from './News/News';
 import Comments from './Comments/Comments';
@@ -32,22 +32,23 @@ const myNews = [
 ];
 
 class App extends Component {
-   state = {
-     news: myNews,
-   };
+  state = {
+    news: myNews,
+  };
   handleAddNews = (data) => {
     const nextNews = [data, ...this.state.news];
 
     console.log(nextNews);
 
-    this.setState({ news: nextNews });
+    this.setState({news: nextNews});
   };
+
   render() {
     return (
       <div className='container'>
-        <Add onAddNews={ this.handleAddNews } />
-        <News data={ this.state.news } />
-        <Comments />
+        <Add onAddNews={this.handleAddNews}/>
+        <News data={this.state.news}/>
+        <Comments/>
       </div>
     );
   }
