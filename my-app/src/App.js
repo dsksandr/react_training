@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import News from './News/News';
 import Comments from './Comments/Comments';
+import Add from './Add/Add';
 
 const myNews = [
   {
@@ -29,42 +30,23 @@ const myNews = [
     bigText: 'Еще есть группа VK, telegram и канал на youtube! Вся инфа на сайте, не реклама!'
   }
 ];
-class TestInput extends Component{
-  constructor(props){
-    super(props);
-    this.input = React.createRef()
-  }
-  componentDidMount(){
-    this.input.current.focus();
-  }
-  onChangeHandler = event => {
-    this.setState({myValue: event.currentTarget.value})
-  };
-  showState = event => {
-    alert(this.input.current.value);
-  };
-
-  render() {
-    return (
-      <div>
-        <input
-          className='testInput'
-          onChange={this.onChangeHandler}
-          defaultValue=''
-          placeholder='Введите значение'
-          ref={this.input}/>
-        <button onClick={this.showState}>Отправить</button>
-      </div>
-    );
-  }
-}
 
 class App extends Component {
+   state = {
+     news: myNews,
+   };
+  handleAddNews = (data) => {
+    const nextNews = [data, ...this.state.news];
+
+    console.log(nextNews);
+
+    this.setState({ news: nextNews });
+  };
   render() {
     return (
       <div className='container'>
-        <TestInput />
-        <News data={myNews} />
+        <Add onAddNews={ this.handleAddNews } />
+        <News data={ this.state.news } />
         <Comments />
       </div>
     );

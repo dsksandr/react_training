@@ -13,13 +13,13 @@ class New extends Component{
   render() {
     const {author, text, bigText} = this.props.data;
     const {visible} = this.state;
-    console.log('render', this);
+    //console.log('render', this);
     return (
       <div className='new'>
         <p className='news__author'>{author}</p>
         <p className='news__text'>{text}</p>
         {
-            !visible && <a onClick={this.handleReadMoreClick} href="#" className='news__readMore'>Подробнее</a>
+          !visible && <a onClick={this.handleReadMoreClick} href="#" className='news__readMore'>Подробнее</a>
         }
         {
           visible && <p className='news__bigText'>{bigText}</p>
@@ -31,6 +31,7 @@ class New extends Component{
 
 New.propTypes = {
   data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
     author: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     bigText: PropTypes.string.isRequired
