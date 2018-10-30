@@ -26,7 +26,6 @@ class News extends Component {
 
     return (
       <div className='news'>
-        <h2>Новости</h2>
         {this.renderNews()}
         {
           data.length ? <strong className='allNews'>Всего новостей: {data.length}</strong> : null
