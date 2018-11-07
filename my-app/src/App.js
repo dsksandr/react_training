@@ -14,7 +14,7 @@ class App extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
     let result = dataNews;
-    console.log(result)
+    console.log(result);
 
     setTimeout(() => {
       this.setState({ isLoading: false, news: result })
